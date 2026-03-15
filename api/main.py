@@ -31,9 +31,6 @@ from .settings import (
 
 BUCKET_NAME = SUPABASE_BUCKET_NAME
 
-# Create all database tables (if they don't exist yet)
-models.Base.metadata.create_all(bind=engine)
-
 app = FastAPI(title="sKonnect API")
 
 # --- CORS Middleware Setup ---
@@ -60,18 +57,26 @@ BUCKET_NAME = "post-media"  # Consolidated bucket name for images and videos
 print("--- Starting Connection Debug ---")
 database_url = os.getenv("DATABASE_URL")
 if database_url:
-    print(f"Successfully loaded DATABASE_URL: {database_url}")
+    print("Successfully loaded DATABASE_URL")
     try:
         hostname = urlparse(database_url).hostname
         print(f"Extracted hostname to test: {hostname}")
         ip_address = socket.gethostbyname(hostname)
         print(f"SUCCESS: Hostname resolved to IP Address: {ip_address}")
     except Exception as e:
-        print(f"\nCRITICAL ERROR: Could not resolve hostname '{hostname}'. Error: {e}")
-        exit()
+        print(f"\nWARNING: Could not resolve hostname '{hostname}'. Error: {e}")
 else:
-    print("ERROR: DATABASE_URL not found in environment. Check your .env file.")
-    exit()
+    print("WARNING: DATABASE_URL not found in environment. Check your environment settings.")
+
+
+@app.on_event("startup")
+def startup_db_init():
+    """Initialize DB tables at startup without crashing the whole service on transient DB errors."""
+    try:
+        models.Base.metadata.create_all(bind=engine)
+        print("Database schema check completed.")
+    except Exception as e:
+        print(f"WARNING: Database schema initialization failed at startup: {e}")
 
 # --- Dependencies ---
 

@@ -1,0 +1,228 @@
+/* src/pagestyles/LandingPage.module.css */
+
+/* Hero Banner Styles */
+.hero {
+  position: absolute; /* Take it out of normal flow */
+  top: 60px; /* Position below fixed appHeader (assuming appHeader is 60px tall) */
+  left: 0; /* Align to the left edge of the viewport */
+  width: 100vw; /* Span the full viewport width */
+  height: 400px; /* Fixed height for the header section (adjust as needed) */
+  overflow: hidden; /* Ensures image and content stay within bounds */
+  box-sizing: border-box; /* Include padding/border in element's total width/height */
+  color: #ffffff; /* Text color */
+
+  /* Use flexbox for text alignment within this absolute container */
+  display: flex;
+  align-items: center; /* Vertically center heroContent */
+  justify-content: flex-end; /* Push heroContent to the right */
+  padding-right: 5%; /* Add some spacing from the right edge for heroContent */
+}
+
+.heroSpacer { /* NEW SPACER: Matches .hero's height and position to push content down */
+  height: 400px; /* Match height of .hero */
+  margin-top: 60px; /* Match appHeader height to align content correctly below appHeader */
+  /* This spacer acts as a placeholder for .hero's space in the document flow */
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fill the area, cropping if needed */
+  z-index: 1; /* Place the image behind the text content */
+}
+
+.heroContent {
+  position: relative; /* Keep it relative so it's affected by flexbox and z-index works */
+  z-index: 2; /* Place the content above the image */
+  max-width: 600px; /* Constrain text width for readability, adjust as needed */
+  text-align: left; /* Align text within its own block */
+  padding: 20px; /* Internal padding for the text block */
+  box-sizing: border-box; /* Include padding in max-width */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* For readability */
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  margin: 0;
+}
+.heroContent p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+/* Main Content Styles */
+.mainContent {
+  /* This will no longer need top padding for the appHeader as heroSpacer handles total header height */
+  padding: 40px 20px; /* Keep horizontal padding for content within the .innerContentWrapper */
+}
+
+/* Announcements Section Styles */
+.announcementsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.announcementsSection h1 {
+  color: #0038A8; /* Deep Blue for headers */
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.announcementsSection h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.announcementsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+/* Featured Post (Left Column) */
+.featuredPost {
+  text-decoration: none;
+  color: inherit;
+}
+.featuredImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.featuredPost h3 {
+  font-size: 1.5rem;
+  margin: 0 0 5px 0;
+}
+.featuredPost p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Post List (Right Column) */
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.postListItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+.postListItem img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.postListItemContent h4 {
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+}
+.postListItemContent p {
+  color: #666;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.modalLoading {
+  padding: 50px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.postModalContent {
+  padding: 25px;
+  width: 90vw; /* Use 90% of the viewport width */
+  max-width: 900px; /* But no more than 900px wide */
+  height: 85vh; /* Use 85% of the viewport height */
+  max-height: 700px; /* But no more than 700px tall */
+  overflow-y: auto; /* Add a scrollbar if content overflows */
+  background-color: #fff; /* Ensure it has a solid background */
+}
+
+.postModalContent h2 {
+  font-size: 2.2rem;
+  margin: 0 0 5px 0;
+}
+
+.postModalMeta {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.postModalImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.postModalBody {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.postModalComments {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.comment {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.comment p {
+  margin: 0 0 8px 0;
+}
+
+.comment small {
+  color: #6c757d;
+}
+
+.gallery {
+  margin-top: 40px;
+}
+
+.gallery h3 {
+  border-top: 1px solid #dee2e6;
+  padding-top: 20px;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.mediaItem img,
+.galleryVideo {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}

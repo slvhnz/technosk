@@ -1,0 +1,770 @@
+/* Styles for the Admin Officials Page */
+.adminContainer {
+  padding: 20px 40px;
+  background-color: #f4f7f6; /* A slightly off-white background for the page */
+}
+
+.adminHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #DEE2E6;
+  padding-bottom: 10px; /* Adjusted */
+  margin-bottom: 20px; /* Adjusted */
+}
+
+.adminHeader h1 {
+  margin: 0;
+  color: #0038A8; /* Official Blue */
+  font-size: 1.75rem;
+}
+
+.adminTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px; /* Adjusted */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.adminTable th, .adminTable td {
+    padding: 10px 15px; /* Adjusted: Smaller padding */
+    text-align: left;
+    border-bottom: 1px solid #EAECEE;
+    font-size: 0.85rem; /* Adjusted: Smaller font size */
+}
+
+.adminTable th {
+    background-color: #F8F9FA;
+    font-weight: 600;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 0.8rem; /* Adjusted: Smaller font size */
+    letter-spacing: 0.5px;
+}
+
+.adminTable tr:hover {
+    background-color: #F1F3F5;
+}
+
+.adminTable tr:last-child td {
+    border-bottom: none;
+}
+
+.tableImage {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.actionCell {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.editButton, .deleteButton, .addButton {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500; /* Adjusted for modern look */
+    color: white;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.editButton {
+    background-color: #ffc107; /* Amber */
+    color: #212529;
+}
+
+.deleteButton {
+    background-color: #dc3545; /* Red */
+}
+
+.addButton {
+    background-color: #0038A8; /* Using the official blue */
+}
+
+.editButton:hover, .deleteButton:hover, .addButton:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .375rem;
+}
+
+/* New styles for filtering and pagination */
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filterGroup label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.filterGroup select {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.paginationControls button {
+  background-color: #0038A8;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.paginationControls button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.paginationControls button:hover:not(:disabled) {
+  background-color: #002b82;
+}
+
+/* Styles for the table (existing from original file, ensuring consistency) */
+.tableContainer {
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.tableContainer h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.requestsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.requestsTable th, .requestsTable td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #EAECEE;
+}
+
+.requestsTable th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.requestsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.requestsTable tr:hover {
+  background-color: #f1f3f5;
+}
+
+.loadingContainer {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+/* Ensure these are present if they were for other tables using .actionCell */
+.actionCell {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.actionButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.actionButton:hover {
+  opacity: 0.8;
+}
+
+.approve {
+  background-color: #28a745;
+}
+
+.reject {
+  background-color: #dc3545;
+}
+
+.complete {
+  background-color: #007bff;
+}
+
+.view {
+  background-color: #6c757d;
+  cursor: default;
+}
+
+.viewButtonContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.viewTooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 300px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 15px;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -150px;
+  transition: opacity 0.3s;
+}
+
+.viewButtonContainer:hover .viewTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.viewTooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.viewTooltip h4 {
+  margin-top: 0;
+  border-bottom: 1px solid #555;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.viewTooltip p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+.viewTooltip p strong {
+    color: #ccc;
+}
+
+.modalContent {
+  padding: 10px;
+}
+
+.modalContent h3 {
+  margin-top: 0;
+}
+
+.modalTextarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.modalConfirmButton {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0038A8;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.clickableRow:hover {
+  cursor: pointer;
+  background-color: #e9ecef;
+}
+
+.statusIndicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.completedIndicator {
+  background-color: #28a745; /* Green */
+}
+
+.rejectedIndicator {
+  background-color: #dc3545; /* Red */
+}
+
+.createButton {
+  background-color: #062b76;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.edit {
+  background-color: #f0ad4e; /* Orange */
+}
+
+.form {
+  padding: 20px;
+}
+.formGroup {
+  margin-bottom: 20px;
+}
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.formGroup input[type="text"],
+.formGroup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.submitButton, .cancelButton {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.submitButton {
+  background-color: #062b76;
+  color: white;
+}
+.cancelButton {
+  background-color: #eee;
+  color: #333;
+}
+
+.emptyRow {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.postListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.postCard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.postThumbnail {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background-color: #f0f0f0;
+}
+
+.postDetails {
+  flex-grow: 1;
+}
+
+.postTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.postMeta {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.postActions {
+  display: flex;
+  gap: 10px;
+}
+
+.formContainer {
+  padding: 10px 20px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.formGroup input[type="text"],
+.formGroup textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+.fileInput {
+    font-size: 0.9rem;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.submitButton, .cancelButton {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.submitButton {
+  background-color: #062b76;
+  color: white;
+}
+.cancelButton {
+  background-color: #eee;
+  color: #333;
+}
+
+/* Styles for the live preview */
+.formPreview {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.formPreview label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.previewCard {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.previewImage {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background-color: #e0e0e0;
+}
+
+.previewContent {
+    padding: 15px;
+}
+
+.previewTitle {
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
+}
+
+.previewText {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.currentImagePreview {
+  max-width: 200px;
+  max-height: 150px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.currentGallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+}
+
+.currentGalleryItem {
+  width: 80px;
+  height: 80px;
+}
+
+.currentGalleryItem img,
+.currentGalleryItem video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.mediaManagementSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+}
+
+.mediaColumn label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.currentGallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.noMediaText {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.mediaItemWrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.mediaItemWrapper img,
+.mediaItemWrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.deleteMediaButton {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: rgba(220, 53, 69, 0.9);
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.playIconOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none; /* Allows the delete button underneath to be clicked */
+  text-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.addButton {
+    background-color: #0038A8; /* Official Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.addButton:hover {
+  background-color: #002b82; /* Darker blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.adminHeader {
+  display: flex;
+  justify-content: space-between; /* Pushes title and button to opposite ends */
+  align-items: center; /* Vertically aligns them in the middle */
+  border-bottom: 2px solid #DEE2E6;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.adminTable th {
+    background-color: #F8F9FA;
+    font-weight: bold; /* Changed from 600 to bold */
+    color: #0038A8;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #EAECEE;
+    vertical-align: middle;
+}
+
+/* --- Styles for Officials Card Layout --- */
+
+.officialsListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between each official's card */
+}
+
+.officialCard {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Space between photo, details, and buttons */
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.officialCard:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.officialCardPhoto {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%; /* Makes the photo circular */
+  flex-shrink: 0;
+  background-color: #f0f0f0;
+  border: 3px solid #e9ecef;
+}
+
+.officialCardDetails {
+  flex-grow: 1; /* Ensures the details section takes up available space */
+}
+
+.officialName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  color: #343a40;
+}
+
+.officialPosition {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.officialCardActions {
+  display: flex;
+  gap: 10px;
+}

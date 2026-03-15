@@ -84,7 +84,7 @@ export default tseslint.config([
   - `DATABASE_URL` (Supabase Postgres connection string)
   - `SUPABASE_URL` and `SUPABASE_KEY` (Supabase project URL and service role key)
   - `VITE_API_BASE_URL` (backend URL; for local dev: `http://localhost:8000`)
-  - `CORS_ALLOWED_ORIGINS` (comma-separated list of allowed frontend origins, e.g. `http://localhost:5173,https://<your-vercel-domain>.vercel.app`)
+  - `CORS_ALLOWED_ORIGINS` (comma-separated allowed frontend origins, e.g. `http://localhost:5173,https://<your-vercel-domain>.vercel.app`)
 
 ### 3) Run locally
 
@@ -136,4 +136,3 @@ Steps:
 5. Deploy and open `/docs` on your Render backend URL to verify API health.
 
 After backend is live, set `VITE_API_BASE_URL` in Vercel to your Render URL.
-

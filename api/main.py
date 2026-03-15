@@ -27,7 +27,6 @@ from .settings import (
     SUPABASE_URL,
     SUPABASE_KEY,
     SUPABASE_BUCKET_NAME,
-    CORS_ALLOWED_ORIGINS,
 )
 
 BUCKET_NAME = SUPABASE_BUCKET_NAME
@@ -38,7 +37,12 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI(title="sKonnect API")
 
 # --- CORS Middleware Setup ---
-origins = [o.strip() for o in CORS_ALLOWED_ORIGINS.split(",") if o.strip()]
+origins = [
+    "http://localhost:5173",
+    "https://technosk.vercel.app"
+
+    # add deployed frontend's URL here later
+]
                               
 app.add_middleware(
     CORSMiddleware,

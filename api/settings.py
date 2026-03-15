@@ -10,13 +10,6 @@ SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 SUPABASE_BUCKET_NAME = os.getenv("SUPABASE_BUCKET_NAME", "post-media")
 
-# Comma-separated list of allowed CORS origins (used by FastAPI). Example:
-# "http://localhost:5173,https://myapp.vercel.app"
-CORS_ALLOWED_ORIGINS = os.getenv(
-	"CORS_ALLOWED_ORIGINS",
-	"http://localhost:5173,https://technosk.vercel.app",
-)
-
 
 SECRET_KEY = os.getenv("SECRET_KEY", "a_very_secret_key_that_should_be_changed")
 ALGORITHM = "HS256"
